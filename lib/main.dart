@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:weatherapp_starter_project/screens/homescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'PayWeather',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData().copyWith(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 238, 39, 73),),
       ),
+      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
+      );
       
-    );
   }
 }
