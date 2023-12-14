@@ -29,7 +29,7 @@ class Current {
     
     temp = json['temp'];
     humidity = json['humidity'];
-    windSpeed = json['windSpeed'];
+    windSpeed = json['wind_speed'];
     clouds = json['clouds'];
     
     if (json['weather'] != null) {
@@ -45,7 +45,7 @@ class Current {
     
     data['temp'] = temp;
     data['humidity'] = humidity;
-    data['windSpeed'] = windSpeed;
+    data['wind_speed'] = windSpeed;
     data['clouds'] = clouds;
     
     if (weather != null) {

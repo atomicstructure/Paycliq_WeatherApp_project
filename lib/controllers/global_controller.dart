@@ -15,6 +15,9 @@ RxDouble getLat() => _lat;
 RxDouble getLng() => _lng;
 
 final weatherData = WeatherData().obs;
+WeatherData getWeatherData() {
+  return weatherData.value;
+}
 
 @override
   void onInit() {
