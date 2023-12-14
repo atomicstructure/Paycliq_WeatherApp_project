@@ -1,9 +1,8 @@
 import 'dart:convert';
-
-import 'package:weatherapp_starter_project/api/api_key.dart';
 import 'package:weatherapp_starter_project/models/weather_data.dart';
 import 'package:http/http.dart' as http;
 import 'package:weatherapp_starter_project/models/weather_data_current.dart';
+import 'package:weatherapp_starter_project/utils/api_url.dart';
 
 class FetchWeatherAPI{
   WeatherData? weatherData;
@@ -16,9 +15,3 @@ class FetchWeatherAPI{
   }
 }
 
-String apiUrl(var lat, var lng){
-  String url;
-
-  url = 'https://api.openweathermap.org/data/3.0/onecall?lat=$lat&lon=$lng&appid=$apiKey';
-  return url;
-}

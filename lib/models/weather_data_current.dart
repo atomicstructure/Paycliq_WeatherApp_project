@@ -11,7 +11,7 @@ class WeatherDataCurrent{
 }
 
 class Current {
-  double? temp;
+  int? temp;
   double? windSpeed;
   int? humidity;
   int? clouds;
@@ -27,7 +27,7 @@ class Current {
 
   Current.fromJson(Map<String, dynamic> json) {
     
-    temp = json['temp'];
+    temp = (json['temp'] as num?)?.round() ;
     humidity = json['humidity'];
     windSpeed = json['wind_speed'];
     clouds = json['clouds'];

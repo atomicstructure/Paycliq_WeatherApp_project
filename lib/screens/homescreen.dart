@@ -22,14 +22,16 @@ class _HomeScreenState extends State<HomeScreen> {
         .isTrue ? const Center(
           child: CircularProgressIndicator(),
         )
-        : ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            const SizedBox(height: 16,),
-            const HeaderWidget(),
-            const SizedBox(height: 16,),
-            CurrentWeather(weatherDataCurrent: globalController.getWeatherData().getCurrentWeather()),
-          ],
+        : Center(
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            children: [
+              const SizedBox(height: 16,),
+              const HeaderWidget(),
+              const SizedBox(height: 16,),
+              CurrentWeather(weatherDataCurrent: globalController.getWeatherData().getCurrentWeather()),
+            ],
+          ),
         )
       )
     ),
