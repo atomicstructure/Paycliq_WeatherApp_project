@@ -7,6 +7,7 @@ class GlobalController extends GetxController{
 final RxBool _isLoading = true.obs;
 final RxDouble _lat = 0.0.obs;
 final RxDouble _lng = 0.0.obs;
+final RxInt _currentIndex = 0.obs;
 
 // TODO: Create Intances for them to be called
 
@@ -23,6 +24,8 @@ WeatherData getWeatherData() {
   void onInit() {
     if (_isLoading.isTrue) {
       getLocation();
+    }else{
+      getIndex();
     }
     super.onInit();
   }
@@ -63,4 +66,9 @@ WeatherData getWeatherData() {
       });
     });
   }
+
+  RxInt getIndex() {
+  return _currentIndex;
 }
+}
+

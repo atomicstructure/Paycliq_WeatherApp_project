@@ -1,5 +1,5 @@
-import 'package:weatherapp_starter_project/models/weather/daily.dart';
-import 'package:weatherapp_starter_project/models/weather/hourly.dart';
+import 'package:weatherapp_starter_project/models/weather_data.daily.dart';
+import 'package:weatherapp_starter_project/models/weather_data_hourly.dart';
 
 class WeatherDataCurrent{
   final Current current;

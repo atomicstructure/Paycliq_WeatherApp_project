@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:weatherapp_starter_project/controllers/global_controller.dart';
 import 'package:weatherapp_starter_project/models/weather_data_hourly.dart';
 import 'package:weatherapp_starter_project/utils/custom_colors.dart';
 
 class HourlyWeatherWidget extends StatelessWidget{
-  const HourlyWeatherWidget({super.key, required this.weatherDataHourly});
+  HourlyWeatherWidget({super.key, required this.weatherDataHourly});
 
   final WeatherDataHourly weatherDataHourly;
+
+  RxInt cardIndex = GlobalController().getIndex();
 
 
   @override
@@ -28,14 +32,20 @@ class HourlyWeatherWidget extends StatelessWidget{
   }
   Widget hourlyList(){
     return Container(
-      height: 150,
+      height: 160,
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: weatherDataHourly.hourly.length > 12 ? 12 : weatherDataHourly.hourly.length ,
+        itemCount: weatherDataHourly.hourly.length > 12 ? 12 
+        : weatherDataHourly.hourly.length ,
         itemBuilder:((context, index) {
-        return GestureDetector(
+        return Obx((() => GestureDetector(
+          onTap: () {
+            cardIndex.value = index;
+          },
           child: Container(
+            width: 90,
+            margin: const EdgeInsets.only(left: 20, right: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
@@ -45,30 +55,39 @@ class HourlyWeatherWidget extends StatelessWidget{
                   color: CustomColors.dividerline.withAlpha(150),
                 )
               ],
-              gradient: const LinearGradient(
+              gradient: cardIndex.value == index ? const LinearGradient(
                 colors: [
                   CustomColors.firstGradientColor, 
-                  CustomColors.secondGradientColor],
+                  CustomColors.secondGradientColor]): null
                 ),
-          ),
           child:  HourlyDetails(
             temp: weatherDataHourly.hourly[index].temp!,
             timeStamp: weatherDataHourly.hourly[index].dt!,
             weatherIcon: weatherDataHourly.hourly[index].weather![0].icon!,
+            index: index,
+            cardIndex: cardIndex.value,
           ),
           ),
-        ); 
+        ))); 
       })),
     );
   }
 }
 
 class HourlyDetails extends StatelessWidget {
-  HourlyDetails({super.key, required this.temp, required this.timeStamp, required this.weatherIcon});
+  HourlyDetails({super.key, required this.temp, required this.timeStamp, required this.weatherIcon, required this.index, required this.cardIndex});
 
   int temp;
+  int index;
+  int cardIndex;
   int timeStamp;
   String weatherIcon;
+
+  String getTime(final timeStamp){
+   DateTime time = DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
+    String x = DateFormat('jm').format(time);
+    return x; 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +95,21 @@ class HourlyDetails extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
-          child: Text(timeStamp.toString()),
+          margin: const EdgeInsets.only(top: 10),
+          child: Text(getTime(timeStamp), style: TextStyle(color: cardIndex == index ? Colors.white: CustomColors.textColorBlack,),),
+        ),
+        Container(
+          margin: const EdgeInsets.all(5),
+          child: Image.asset('assets/weather/$weatherIcon.png', 
+          height: 40, 
+          width: 40,
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(bottom: 10),
+          child: Text('$temp°', style: TextStyle(color: cardIndex == index ? Colors.white: CustomColors.textColorBlack,),),
         )
-      ],
+    ],
     );
   }
 }
