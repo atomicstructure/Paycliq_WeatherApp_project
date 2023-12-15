@@ -43,7 +43,7 @@ class Current {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     
-    data['temp'] = temp;
+    data['temp'] = (temp as num).round();
     data['humidity'] = humidity;
     data['wind_speed'] = windSpeed;
     data['clouds'] = clouds;

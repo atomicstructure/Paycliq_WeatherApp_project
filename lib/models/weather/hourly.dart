@@ -1,5 +1,4 @@
 import 'weather.dart';
-// import 'rain.dart';
 
 
 class Hourly {
