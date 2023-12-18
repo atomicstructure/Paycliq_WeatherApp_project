@@ -60,7 +60,7 @@ class Temp {
   Temp({this.day, this.min, this.max, this.night, this.eve, this.morn});
 
   Temp.fromJson(Map<String, dynamic> json) {
-    day = (json['day'] as num ?) ?.toDouble();
+    day = (json['day'] as num ?)?.toDouble();
     min = (json['min'] as num ?)?.round();
     max = (json['max'] as num?)?.round();
     night = (json['night']as num?)?.toDouble();
