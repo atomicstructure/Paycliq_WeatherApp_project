@@ -13,6 +13,8 @@ class WeatherDataCurrent{
 class Current {
   int? temp;
   double? windSpeed;
+  double? uvIndex;
+  double? feelsLike;
   int? humidity;
   int? clouds;
   List<Weather>? weather;
@@ -23,7 +25,9 @@ class Current {
       this.humidity,
       this.windSpeed,
       this.clouds,
-      this.weather});
+      this.weather,
+      this.uvIndex,
+      this.feelsLike});
 
   Current.fromJson(Map<String, dynamic> json) {
     
@@ -31,6 +35,8 @@ class Current {
     humidity = json['humidity'];
     windSpeed = json['wind_speed'];
     clouds = json['clouds'];
+    uvIndex = (json['uvi'] as num).toDouble();
+    feelsLike = (json['feels_like'] as num).toDouble();
     
     if (json['weather'] != null) {
       weather = <Weather>[];
@@ -47,7 +53,8 @@ class Current {
     data['humidity'] = humidity;
     data['wind_speed'] = windSpeed;
     data['clouds'] = clouds;
-    
+    data['uvi'] = uvIndex;
+    data['feels_like'] = feelsLike;
     if (weather != null) {
       data['weather'] = weather!.map((v) => v.toJson()).toList();
     }
