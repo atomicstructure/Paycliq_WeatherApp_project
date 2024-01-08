@@ -39,9 +39,9 @@
     },
     {
       "name": "cupertino_icons",
-      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.5",
+      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.6",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "fake_async",
@@ -57,9 +57,9 @@
     },
     {
       "name": "flutter_lints",
-      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/flutter_lints-2.0.1",
+      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/flutter_lints-3.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_test",
@@ -111,7 +111,7 @@
     },
     {
       "name": "geolocator_apple",
-      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/geolocator_apple-2.3.2",
+      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/geolocator_apple-2.3.4",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -159,9 +159,9 @@
     },
     {
       "name": "lints",
-      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/lints-2.0.0",
+      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/lints-3.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "matcher",
@@ -189,7 +189,7 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.7",
+      "rootUri": "file:///home/oluwafemi/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.8",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -278,7 +278,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-18T15:20:13.686685Z",
+  "generated": "2024-01-08T14:50:48.667937Z",
   "generator": "pub",
-  "generatorVersion": "3.2.2"
+  "generatorVersion": "3.2.3"
 }
